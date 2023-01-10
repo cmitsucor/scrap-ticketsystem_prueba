@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Group</th>
+            <th scope="col">Speichern</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for form in forms %}
+            <tr>
+                <form action="" method="post" name="{{ form.email.label }}">
+                    {{ form.hidden_tag() }}
+                    <td> {{ form.first_name.label + " " + form.last_name.label }}</td>
+                    <td> {{ form.email.label }}</td>
+                    <td> {{form.user_group(class_="form-control") }}</td>
+                    <td>
+                        {{ form.submit(class_="btn btn-outline-primary") }}
+                    </td>
+                </form>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
